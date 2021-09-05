@@ -17,6 +17,7 @@ const response = async function () {
     const res = await fetch(
       `https://www.omdbapi.com/?s=${searchInput.value}&apikey=a106e057`
     );
+    if (searchInput.value === "") throw new Error("please enter a movie");
     if (!res.ok) throw new Error("Cant find data");
     const data = await res.json();
     const response = data.Search;
@@ -47,6 +48,12 @@ searchBtn.addEventListener("click", function () {
   container.innerHTML = "";
   response();
 });
+searchInput.addEventListener("keydown", function (e) {
+  if (e.key === "Enter") {
+    container.innerHTML = "";
+    response();
+  }
+});
 
 const handleError = function (errorMsg) {
   const errorContent = `<div>
@@ -55,3 +62,4 @@ const handleError = function (errorMsg) {
     </div>`;
   return container.insertAdjacentHTML("afterbegin", errorContent);
 };
+// hree
