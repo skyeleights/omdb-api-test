@@ -13,11 +13,11 @@ const response = async function () {
     if (!res.ok) throw new Error("Cant find data");
     const data = await res.json();
     const response = data.Search;
-    // console.log(response);
+
     if (data.Response === "False") throw new Error(data.Error);
     if (data.Response === "True")
       response.forEach((res) => {
-        const html = ` <div
+        const html = `<a href="./details.html"> <div
           class="card"
           style="
             background-image: url('${res.Poster}');
@@ -28,7 +28,7 @@ const response = async function () {
           <div class="card_info">
            <h2 data-id="${res.imdbID}" class="title">${res.Title}</h2> 
           </div>
-        </div>`;
+        </div> </a>`;
 
         container.insertAdjacentHTML("afterbegin", html);
       });
@@ -48,7 +48,7 @@ searchInput.addEventListener("keydown", function (e) {
   }
 });
 
-const handleError = function (errorMsg) {
+ const handleError = function (errorMsg) {
   const errorContent = `<div>
     <img src="./assets/IncredibleThickBarnowl-size_restricted.gif">
     <h3 class="errorMsg">${errorMsg}</h3>
@@ -58,8 +58,7 @@ const handleError = function (errorMsg) {
 
 container.addEventListener("click", function (e) {
   if (e.target.classList.contains("card")) {
-   
-    const Movieid=e.target.querySelector(".title").dataset.id
-    localStorage.setItem('movieId', Movieid);
+    const Movieid = e.target.querySelector(".title").dataset.id;
+    localStorage.setItem("movieId", Movieid);
   }
 });

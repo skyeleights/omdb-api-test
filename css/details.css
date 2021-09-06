@@ -12,14 +12,15 @@ main {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 8rem;
+  width: 70rem;
+  margin: 0 auto;
+  margin-top: 10rem;
 }
 .detailSection {
   display: flex;
   align-items: center;
   box-sizing: border-box;
-  padding: 1rem;
-  width: auto;
+  padding: 2.1rem;
   height: auto;
   background-color: rgb(255, 255, 255);
   border-radius: 2rem;
