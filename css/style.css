@@ -1,6 +1,6 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
 body {
-  height: 100rem;
+  height: 190rem;
   background-image: linear-gradient(#f7971e, #ffd200);
   background-size: cover;
   background-repeat: no-repeat;
@@ -22,11 +22,13 @@ nav {
   font-size: 0.9rem;
   text-align: center;
 }
-.search_btn {
+.search_btn,
+.home_btn {
   width: 5rem;
   border: none;
   outline: none;
   margin-left: 3px;
+  margin-right: 3px;
   border-radius: 5rem;
   background-color: white;
   text-transform: uppercase;
@@ -34,7 +36,8 @@ nav {
   cursor: pointer;
   transition: 0.3s ease;
 }
-.search_btn:hover {
+.search_btn:hover,
+.home_btn:hover {
   background-color: rgb(165, 160, 160);
   color: white;
   cursor: pointer;

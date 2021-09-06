@@ -37,6 +37,50 @@ const response = async function () {
   }
 };
 
+const handleError = function (errorMsg) {
+  const errorContent = `<div>
+    <img src="./assets/IncredibleThickBarnowl-size_restricted.gif">
+    <h3 class="errorMsg">${errorMsg}</h3>
+    </div>`;
+  return container.insertAdjacentHTML("afterbegin", errorContent);
+};
+
+const homePage = async function () {
+  const response = await fetch(
+    `https://api.themoviedb.org/3/movie/popular?api_key=9e3ec181b39e2779ab4fb40afdf5cf01`
+  );
+  const { results } = await response.json();
+  console.log(results);
+
+  results.forEach((res) => {
+    const path = `http://image.tmdb.org/t/p/w500${res.poster_path}`;
+    const html = ` <div
+      class="card"
+      style="
+      background-image: url('${path}');
+      background-size: cover;
+      background-repeat: no-repeat;
+    "
+    >
+     
+      <div class="card_info">
+       <h2  class="title">${res.title}</h2>
+      </div>
+    </div> `;
+    console.log(html);
+    container.insertAdjacentHTML("afterbegin", html);
+    // emptying input
+    searchInput.value = "";
+  });
+};
+homePage();
+
+container.addEventListener("click", function (e) {
+  if (e.target.classList.contains("card")) {
+    const Movieid = e.target.querySelector(".title").dataset.id;
+    localStorage.setItem("movieId", Movieid);
+  }
+});
 searchBtn.addEventListener("click", function () {
   container.innerHTML = "";
   response();
@@ -47,18 +91,6 @@ searchInput.addEventListener("keydown", function (e) {
     response();
   }
 });
-
- const handleError = function (errorMsg) {
-  const errorContent = `<div>
-    <img src="./assets/IncredibleThickBarnowl-size_restricted.gif">
-    <h3 class="errorMsg">${errorMsg}</h3>
-    </div>`;
-  return container.insertAdjacentHTML("afterbegin", errorContent);
-};
-
-container.addEventListener("click", function (e) {
-  if (e.target.classList.contains("card")) {
-    const Movieid = e.target.querySelector(".title").dataset.id;
-    localStorage.setItem("movieId", Movieid);
-  }
+document.querySelector(".home_btn").addEventListener("click", function () {
+  homePage();
 });
