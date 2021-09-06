@@ -13,6 +13,7 @@ const response = async function () {
     if (!res.ok) throw new Error("Cant find data");
     const data = await res.json();
     const response = data.Search;
+    // console.log(response);
     if (data.Response === "False") throw new Error(data.Error);
     if (data.Response === "True")
       response.forEach((res) => {
@@ -25,7 +26,7 @@ const response = async function () {
           "
         >
           <div class="card_info">
-          <a href="./details.html"> <h2 class="title">${res.Title}</h2> </a>
+           <h2 data-id="${res.imdbID}" class="title">${res.Title}</h2> 
           </div>
         </div>`;
 
@@ -54,3 +55,11 @@ const handleError = function (errorMsg) {
     </div>`;
   return container.insertAdjacentHTML("afterbegin", errorContent);
 };
+
+container.addEventListener("click", function (e) {
+  if (e.target.classList.contains("card")) {
+   
+    const Movieid=e.target.querySelector(".title").dataset.id
+    localStorage.setItem('movieId', Movieid);
+  }
+});
