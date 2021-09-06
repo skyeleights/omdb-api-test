@@ -1,0 +1,57 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap");
+body {
+  height: 100vh;
+  width: auto;
+  background-image: linear-gradient(#f7971e, #ffd200);
+  background-size: cover;
+  background-repeat: no-repeat;
+  font-family: "Roboto", serif;
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 8rem;
+}
+.detailSection {
+  display: flex;
+  box-sizing: border-box;
+  padding: 1rem;
+  width: auto;
+  height: auto;
+  background-color: rgb(255, 255, 255);
+  border-radius: 2rem;
+}
+.poster {
+  height: 20rem;
+  margin-right: 2rem;
+  box-shadow: -1px 2px 11px 0px rgba(0, 0, 0, 0.75);
+  border-radius: 2rem;
+}
+.poster img {
+  height: inherit;
+  width: inherit;
+  /* border: 1px solid white; */
+  border-radius: 2rem;
+}
+.additional_info {
+  display: flex;
+}
+.addinfo {
+  margin-right: 5rem;
+}
+.additional_info--2 {
+  margin-left: 10px;
+}
+h3,
+p {
+  color: rgb(138, 129, 129);
+}
+h2 {
+  color: rgb(83, 83, 83);
+}
+.fas,
+.fab {
+  padding-right: 5px;
+}

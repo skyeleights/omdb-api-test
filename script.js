@@ -1,13 +1,5 @@
 "use strict";
-// https://www.omdbapi.com/?s=naruto&page=2&apikey=a106e057
-// console.log("hello new one ");
-// fetch(`https://www.omdbapi.com/?s=naruto&page=2&apikey=a106e057`)
-//   .then((res) => {
-//     return res.json();
-//   })
-//   .then((res) => {
-//     console.log(res);
-//   });
+
 const container = document.querySelector(".movie_section");
 const searchBtn = document.querySelector(".search_btn");
 const searchInput = document.getElementById("search_input");
@@ -33,7 +25,7 @@ const response = async function () {
           "
         >
           <div class="card_info">
-            <h2 class="title">${res.Title}</h2>
+          <a href="./details.html"> <h2 class="title">${res.Title}</h2> </a>
           </div>
         </div>`;
 
@@ -62,4 +54,3 @@ const handleError = function (errorMsg) {
     </div>`;
   return container.insertAdjacentHTML("afterbegin", errorContent);
 };
-// hree
