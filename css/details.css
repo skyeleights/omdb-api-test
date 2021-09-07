@@ -50,6 +50,7 @@ main {
 
 p {
   color: rgb(110, 108, 108);
+  font-weight: 900;
 }
 h2 {
   color: rgb(250, 245, 245);
@@ -57,14 +58,14 @@ h2 {
 .fas,
 .fab {
   padding-right: 5px;
-  color: rgb(250, 245, 245);
+  color: rgb(223, 217, 217);
 }
 .innerText {
   font-size: 90%;
   color: rgb(110, 108, 108);
 }
 .titles {
-  color: rgb(250, 245, 245);
+  color: rgb(223, 217, 217);
 }
 .messages {
   text-align: center;
