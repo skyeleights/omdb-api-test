@@ -53,7 +53,7 @@ const homePage = async function () {
     `https://api.themoviedb.org/3/movie/popular?api_key=9e3ec181b39e2779ab4fb40afdf5cf01`
   );
   const { results } = await response.json();
-  console.log(results);
+
 
   results.forEach((res) => {
     const path = `http://image.tmdb.org/t/p/w500${res.poster_path}`;
@@ -70,7 +70,7 @@ const homePage = async function () {
        <h2  class="title">${res.title}</h2>
       </div>
     </div> `;
-    console.log(html);
+   
     container.insertAdjacentHTML("afterbegin", html);
     // emptying input
     searchInput.value = "";
