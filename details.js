@@ -2,13 +2,24 @@
 
 const movieId = localStorage.getItem("movieId");
 const container = document.querySelector(".detailSection");
+const loader = function () {
+  let loader = `
+  <div class="loading_component">
+  <h3 class="messages">Loading...</h3>
+  <img src="./assets/mememe.gif">
+  </div>`;
+  container.innerHTML = loader;
+};
+
 const gettingMovie = async function () {
   try {
+    loader();
     const movie = await fetch(
       `http://www.omdbapi.com/?i=${movieId}&apikey=a106e057`
     );
+
+    if (!movie.ok) throw new Error("Cant find details 😿");
     const response = await movie.json();
-    console.log(response);
 
     const html = `<div class="poster">
   <img
@@ -69,11 +80,13 @@ const gettingMovie = async function () {
   </div>
 </div>
   `;
+    container.innerHTML = "";
     container.insertAdjacentHTML("afterbegin", html);
   } catch (err) {
     handleError(err.message);
   }
 };
+
 gettingMovie();
 
 const handleError = function (errorMsg) {

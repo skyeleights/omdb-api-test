@@ -22,8 +22,9 @@ main {
   box-sizing: border-box;
   padding: 2.1rem;
   height: auto;
-  background-color: rgb(255, 255, 255);
+  /* background-color: rgb(255, 255, 255); */
   border-radius: 2rem;
+  box-shadow: -1px 2px 11px 0px rgba(0, 0, 0, 0.75);
 }
 .poster {
   height: 20rem;
@@ -48,20 +49,30 @@ main {
 }
 
 p {
-  color: rgb(138, 129, 129);
+  color: rgb(110, 108, 108);
 }
 h2 {
-  color: rgb(83, 83, 83);
+  color: rgb(250, 245, 245);
 }
 .fas,
 .fab {
   padding-right: 5px;
-  color: rgb(95, 89, 89);
+  color: rgb(250, 245, 245);
 }
 .innerText {
   font-size: 90%;
-  color: rgb(107, 88, 88);
+  color: rgb(110, 108, 108);
 }
 .titles {
-  color: rgb(95, 89, 89);
+  color: rgb(250, 245, 245);
+}
+.messages {
+  text-align: center;
+  color: rgb(250, 245, 245);
+
+  font-size: 2rem;
+}
+.loading_component {
+  box-sizing: border-box;
+  height: 10rem;
 }

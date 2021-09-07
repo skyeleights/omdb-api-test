@@ -78,7 +78,7 @@ const homePage = async function () {
 };
 homePage();
 
-const loader = function () {
+ const loader = function () {
   let loader = `
   <div>
   <img src="./assets/mememe.gif">
