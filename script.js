@@ -6,6 +6,8 @@ const searchInput = document.getElementById("search_input");
 
 const response = async function () {
   try {
+    //loading
+    loader();
     const res = await fetch(
       `https://www.omdbapi.com/?s=${searchInput.value}&apikey=a106e057`
     );
@@ -15,9 +17,9 @@ const response = async function () {
     const response = data.Search;
 
     if (data.Response === "False") throw new Error(data.Error);
-    if (data.Response === "True")
-      response.forEach((res) => {
-        const html = `<a href="./details.html"> <div
+    if (data.Response === "True") container.innerHTML = "";
+    response.forEach((res) => {
+      const html = `<a href="./details.html"> <div
           class="card"
           style="
             background-image: url('${res.Poster}');
@@ -30,17 +32,18 @@ const response = async function () {
           </div>
         </div> </a>`;
 
-        container.insertAdjacentHTML("afterbegin", html);
-      });
+      container.insertAdjacentHTML("afterbegin", html);
+    });
   } catch (err) {
     handleError(err.message);
   }
 };
 
 const handleError = function (errorMsg) {
+  container.innerHTML = "";
   const errorContent = `<div>
     <img src="./assets/IncredibleThickBarnowl-size_restricted.gif">
-    <h3 class="errorMsg">${errorMsg}</h3>
+    <h3 class="messages">${errorMsg}</h3>
     </div>`;
   return container.insertAdjacentHTML("afterbegin", errorContent);
 };
@@ -74,6 +77,15 @@ const homePage = async function () {
   });
 };
 homePage();
+
+const loader = function () {
+  let loader = `
+  <div>
+  <img src="./assets/mememe.gif">
+  <h3 class="messages">Loading...</h3>
+  </div>`;
+  container.innerHTML = loader;
+};
 
 container.addEventListener("click", function (e) {
   if (e.target.classList.contains("card")) {

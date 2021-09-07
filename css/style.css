@@ -63,8 +63,8 @@ nav {
   align-items: flex-end;
   justify-content: center;
   text-align: center;
-
   box-shadow: 3px -200px 400px -200px rgba(0, 0, 0, 1) inset;
+  transition: 0.9 ease-in;
 }
 
 .card_info {
@@ -79,7 +79,7 @@ nav {
   );
 }
 
-.errorMsg {
+.messages {
   text-align: center;
   color: white;
   font-size: 2rem;
